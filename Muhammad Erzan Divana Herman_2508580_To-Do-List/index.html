@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi To-Do List - Muhammad Erzan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Pop-up Notifikasi To-Do List -->
+    <div id="notifikasi-box" class="toast-notif hidden"></div>
+
+    <div class="main-wrapper">
+        <!-- Header Aplikasi -->
+        <header class="app-header">
+            <div class="user-pill">Muhammad Erzan Divana Herman &bull; 2508580</div>
+            <h1>To-Do List Harian</h1>
+            <p>Catat dan pantau penyelesaian target harian Anda secara teratur</p>
+        </header>
+
+        <!-- Kartu Konten Utama -->
+        <main class="app-card">
+            <!-- Input Section -->
+            <section class="section-input">
+                <div class="field-group">
+                    <input type="text" id="input-rencana"
+                        placeholder="Tuliskan agenda to do list baru lalu tekan Enter..." autocomplete="off">
+                    <button id="btn-simpan" class="btn-action">+ Tambahkan</button>
+                </div>
+            </section>
+
+            <!-- Panel Rekap To-Do List & Progress Bar -->
+            <section class="summary-section">
+                <div class="progress-bar-container">
+                    <div class="progress-labels">
+                        <span>Progres Penyelesaian</span>
+                        <span id="persen-selesai">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-title">Total To-Do List</span>
+                        <span id="rekap-total" class="metric-count">0</span>
+                    </div>
+                    <div class="metric-box box-success">
+                        <span class="metric-title">Selesai</span>
+                        <span id="rekap-selesai" class="metric-count">0</span>
+                    </div>
+                    <div class="metric-box box-pending">
+                        <span class="metric-title">Belum Selesai</span>
+                        <span id="rekap-belum" class="metric-count">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wadah Daftar To-Do List -->
+            <section class="list-section">
+                <ul id="list-rencana" class="todo-collection">
+                    <!-- Item to do list akan dimasukkan secara dinamis lewat script.js -->
+                </ul>
+                <div id="status-kosong" class="empty-state-box">
+                    <p>Belum ada to do list yang ditambahkan. Silakan isi form di atas.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

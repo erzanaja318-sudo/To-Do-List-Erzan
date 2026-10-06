@@ -1,0 +1,336 @@
+/* ============================================================
+   STYLING TO-DO LIST HARIAN
+   Author: Muhammad Erzan Divana Herman (2508580)
+   Tema: Modern Teal, Clean Slate & Interactive Card
+   ============================================================ */
+
+:root {
+  --teal-primary: #0d9488;
+  --teal-hover: #0f766e;
+  --teal-light: #ccfbf1;
+  --color-done: #10b981;
+  --color-pending: #e11d48;
+  --bg-page: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-light: #cbd5e1;
+  --radius-card: 14px;
+  --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 2.5rem 1rem;
+}
+
+.main-wrapper {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+/* Toast Pop-up Notifikasi */
+.toast-notif {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background-color: #1e293b;
+  color: #f8fafc;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  transition: all 0.3s ease;
+  animation: slideFadeIn 0.3s ease;
+}
+
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.user-pill {
+  display: inline-block;
+  background-color: var(--teal-light);
+  color: var(--teal-hover);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 0.75rem;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.app-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Card Konten */
+.app-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-card);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid #e2e8f0;
+}
+
+/* Section Input */
+.field-group {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.field-group input {
+  flex: 1;
+  padding: 0.75rem 1.15rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: 9px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.field-group input:focus {
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.18);
+}
+
+.btn-action {
+  padding: 0.75rem 1.4rem;
+  border: none;
+  border-radius: 9px;
+  background-color: var(--teal-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+  background-color: var(--teal-hover);
+}
+
+.btn-action:active {
+  transform: scale(0.98);
+}
+
+/* Progress Bar & Summary */
+.summary-section {
+  margin-bottom: 1.8rem;
+}
+
+.progress-bar-container {
+  margin-bottom: 1.25rem;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background-color: var(--teal-primary);
+  transition: width 0.3s ease;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.metric-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  padding: 0.9rem 0.5rem;
+  text-align: center;
+}
+
+.metric-title {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.metric-count {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.metric-box.box-success .metric-count {
+  color: var(--color-done);
+}
+
+.metric-box.box-pending .metric-count {
+  color: var(--color-pending);
+}
+
+/* Daftar To-Do List */
+.todo-collection {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item-row {
+  border-radius: 9px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.25s ease;
+  animation: rowAppear 0.25s ease;
+}
+
+/* PEWARNAAN MERAH: Belum Selesai */
+.item-row.status-pending {
+  background-color: #fff1f2;
+  border-left: 5px solid var(--color-pending);
+}
+
+.item-row.status-pending .pill-tag {
+  background-color: #ffe4e6;
+  color: var(--color-pending);
+}
+
+/* PEWARNAAN HIJAU: Selesai */
+.item-row.status-completed {
+  background-color: #f0fdf4;
+  border-left: 5px solid var(--color-done);
+}
+
+.item-row.status-completed .pill-tag {
+  background-color: #dcfce7;
+  color: var(--color-done);
+}
+
+.item-row.status-completed .row-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* Konten Tugas */
+.row-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.pill-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.row-title {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  word-break: break-word;
+}
+
+/* Tombol Aksi */
+.action-buttons {
+  display: flex;
+  gap: 0.4rem;
+  margin-left: 0.8rem;
+}
+
+.btn-status-toggle {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-status-toggle:hover {
+  background-color: #bbf7d0;
+}
+
+.btn-remove-row {
+  background-color: #ffe4e6;
+  color: #9f1239;
+  border: 1px solid #fecdd3;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-remove-row:hover {
+  background-color: #fecdd3;
+}
+
+/* Empty State */
+.empty-state-box {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 2.2rem 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes rowAppear {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
